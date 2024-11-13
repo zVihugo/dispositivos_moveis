@@ -6,11 +6,28 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export function NovaConta({navigation}) {
+import {useState} from 'react';
 
-    const handlePressNavigateLogin = () => {
-        navigation.navigate("Login");
+export function NovaConta({navigation}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+
+
+  const handleCadastro = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage('E-mail parece ser inválido');
+    }else if(repeatPassword !== password){
+      setErrorMessage("O campo repetir senha difere da senha");
+    }else{
+      setErrorMessage("");
+      navigation.navigate("Login");
     }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -19,23 +36,37 @@ export function NovaConta({navigation}) {
           <TextInput
             style={styles.inputContext}
             placeholder="Digite seu e-mail"
+            value={email}
+           
+            onChangeText={text => setEmail(text)}
           />
         </View>
         <View style={styles.inputGroup}>
           <Text style={styles.textContent}>Senha</Text>
           <TextInput
+           secureTextEntry={true}
+            onChangeText={text => setPassword(text)}
             style={styles.inputContext}
+            value={password}
             placeholder="Digite sua senha"
           />
         </View>
         <View style={styles.inputGroup}>
           <Text style={styles.textContent}>Repetir senha</Text>
           <TextInput
+           secureTextEntry={true}
+            value={repeatPassword}
+            onChangeText={text => setRepeatPassword(text)}
             style={styles.inputContext}
             placeholder="Digite sua senha"
           />
         </View>
-        <TouchableOpacity style={styles.buttonContent} onPress={handlePressNavigateLogin}>
+        {errorMessage ? (
+          <Text style={styles.errorText}>{errorMessage}</Text>
+        ) : null}
+        <TouchableOpacity
+          style={styles.buttonContent}
+          onPress={handleCadastro}>
           <Text style={styles.buttonText}>CADASTRAR</Text>
         </TouchableOpacity>
       </View>
@@ -128,5 +159,13 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginBottom: 10,
     padding: 8,
+  },
+  errorText: {
+    color: "#FF4D4D",
+    fontSize: 14,
+    fontFamily: "AveriaLibre-Regular",
+    alignSelf: "flex-start",
+    paddingLeft: 40,
+    marginTop: 1,
   },
 });

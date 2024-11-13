@@ -1,4 +1,3 @@
-
 import {
   StyleSheet,
   Text,
@@ -7,9 +6,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import Icon from "react-native-vector-icons/MaterialIcons";
+import { useState } from "react";
 
-export  function Login({navigation}) {
+// import Icon from "react-native-vector-icons/MaterialIcons";
+
+export function Login({navigation}) {
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handlePressNavigateRegister = () => {
     navigation.navigate("NovaConta");
@@ -19,16 +22,29 @@ export  function Login({navigation}) {
     navigation.navigate("RecuperarSenha");
   }
 
+  const handleLogin = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("E-mail e/ou senha inválidos.");
+    } else {
+      setErrorMessage("");
+      //Mauricio a hora que tu terminar a home, descomenta a linha de baixo também!
+      // navigation.navigate("Home");
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.title}>
         <Text style={styles.TitleText}>Satisfying.you</Text>
-        <Icon name="sentiment_satisfied" size={40} color="#fff" />
+        {/* <Icon name="sentiment_satisfied" size={40} color="#fff" /> */}
       </View>
       <View style={styles.content}>
         <View style={styles.inputGroup}>
           <Text style={styles.textContent}>E-mail</Text>
           <TextInput
+            value={email}
+            onChangeText={(text) => setEmail(text)}
             style={styles.inputContext}
             placeholder="Digite seu e-mail"
           />
@@ -37,10 +53,15 @@ export  function Login({navigation}) {
           <Text style={styles.textContent}>Senha</Text>
           <TextInput
             style={styles.inputContext}
+            secureTextEntry={true}
             placeholder="Digite sua senha"
+           
           />
         </View>
-        <TouchableOpacity style={styles.buttonContent}>
+        {errorMessage ? (
+          <Text style={styles.errorText}>{errorMessage}</Text>
+        ) : null}
+        <TouchableOpacity style={styles.buttonContent} onPress={handleLogin}>
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
       </View>
@@ -52,7 +73,6 @@ export  function Login({navigation}) {
           <Text style={styles.helpText}>Esqueci minha senha</Text>
         </TouchableOpacity>
       </View>
-
     </View>
   );
 }
@@ -97,6 +117,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 40,
     paddingLeft: 10,
+  },
+  errorText: {
+    color: "#FF4D4D",
+    fontSize: 14,
+    fontFamily: "AveriaLibre-Regular",
+    alignSelf: "flex-start",
+    paddingLeft: 40,
+    marginTop: 1,
   },
   buttonContent: {
     backgroundColor: "#37BD6D",
