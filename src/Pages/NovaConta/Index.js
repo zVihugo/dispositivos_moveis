@@ -44,7 +44,7 @@ export function NovaConta({navigation}) {
         <View style={styles.inputGroup}>
           <Text style={styles.textContent}>Senha</Text>
           <TextInput
-           secureTextEntry={true}
+            secureTextEntry={true}
             onChangeText={text => setPassword(text)}
             style={styles.inputContext}
             value={password}
@@ -54,7 +54,7 @@ export function NovaConta({navigation}) {
         <View style={styles.inputGroup}>
           <Text style={styles.textContent}>Repetir senha</Text>
           <TextInput
-           secureTextEntry={true}
+            secureTextEntry={true}
             value={repeatPassword}
             onChangeText={text => setRepeatPassword(text)}
             style={styles.inputContext}
