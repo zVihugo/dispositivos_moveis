@@ -16,10 +16,10 @@ import Person from '../../assets/images/Person.png';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export function Home() {
+export function Home({navigation}) {
   const [search, setSearch] = useState('');
 
-  const goToNewResearch = ({navigation}) => {
+  const goToNewResearch = () => {
     navigation.navigate('NovaPesquisa');
   };
 
