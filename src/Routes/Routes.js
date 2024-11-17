@@ -6,6 +6,7 @@ import {NovaConta} from '../Pages/NovaConta/Index';
 import {RecuperarSenha} from '../Pages/RecuperarSenha/Index';
 import {Home} from '../Pages/Home/Index';
 import {DrawerNavigator} from '../Pages/DrawerNavigator/Index';
+import {NovaPesquisa} from '../Pages/NovaPesquisa/NovaPesquisa';
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,21 @@ export function Routes() {
               backgroundColor: '#2B1D62',
             },
             title: 'Recuperar Senha',
+            headerTitleStyle: {
+              fontFamily: 'AveriaLibre-Bold',
+              fontSize: 30,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="NovaPesquisa"
+          component={NovaPesquisa}
+          options={{
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#2B1D62',
+            },
+            title: 'NovaPesquisa',
             headerTitleStyle: {
               fontFamily: 'AveriaLibre-Bold',
               fontSize: 30,
