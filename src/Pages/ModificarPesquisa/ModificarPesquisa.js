@@ -163,17 +163,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   content: {
+    marginTop: 55,
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
   },
   inputGroup: {
-    width: '80%',
+    width: '70%',
     marginBottom: 10,
   },
   textContent: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: 18,
     marginBottom: 5,
     fontFamily: 'AveriaLibre-Regular',
   },
@@ -203,15 +204,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10,
-    padding: 17,
-    width: '60%',
+    width: '45%',
   },
   buttonContent: {
     backgroundColor: '#37BD6D',
-    width: '80%',
+    width: '70%',
     height: 40,
-    marginTop: 30,
+    marginTop: 10,
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
@@ -225,10 +224,9 @@ const styles = StyleSheet.create({
   deleteGroup: {
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    padding: 15,
+    padding: 5,
   },
   trashIcon: {
-    marginBottom: 0,
     marginRight: 18,
   },
   deleteText: {
