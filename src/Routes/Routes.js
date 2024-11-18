@@ -9,6 +9,7 @@ import {DrawerNavigator} from '../Pages/DrawerNavigator/Index';
 import {NovaPesquisa} from '../Pages/NovaPesquisa/NovaPesquisa';
 import {AcoesPesquisa} from '../Pages/AcoesPesquisa';
 import {ColetaDados} from '../Pages/ColetaDados';
+import { ModificarPesquisa } from '../Pages/ModificarPesquisa/ModificarPesquisa';
 
 const Stack = createStackNavigator();
 
