@@ -22,7 +22,9 @@ export function NovaPesquisa({navigation}) {
 
   const handleEscolherImagem = () => {
     launchImageLibrary({mediaType: 'photo', selectionLimit: 1}, response => {
-      if (response.didCancel) return;
+      if (response.didCancel) {
+        return;
+      }
       if (response.assets && response.assets.length > 0) {
         setImagemUri(response.assets[0].uri);
       }
@@ -55,9 +57,9 @@ export function NovaPesquisa({navigation}) {
       setDataError('');
     }
 
-    if (valid) {
+     if (valid) {
       console.log({nome, data, imagemUri});
-      navigation.navigate('ModificarPesquisa');
+      navigation.navigate('AcoesPesquisa', {nome});
     }
   };
 
