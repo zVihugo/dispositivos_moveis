@@ -10,10 +10,6 @@ import {
 import {Card} from '../../components/Card/Index';
 import {useState} from 'react';
 
-import Computer from '../../assets/images/Computer.png';
-import People from '../../assets/images/People.png';
-import Person from '../../assets/images/Person.png';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export function Home({navigation}) {
@@ -21,6 +17,10 @@ export function Home({navigation}) {
 
   const goToNewResearch = () => {
     navigation.navigate('NovaPesquisa');
+  };
+
+  const goToActionSearch = () => {
+    navigation.navigate('AcoesPesquisa');
   };
 
   return (
@@ -35,14 +35,12 @@ export function Home({navigation}) {
           onChangeText={text => setSearch(text)}
         />
       </View>
-      <ScrollView
-        horizontal={true}
-        contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.containerCard}>
-          <Card title="SECOMP 2023" date="10/10/2023" image={Computer} />
-          <Card title="UBUNTU 2022" date="05/06/2022" image={People} />
-          <Card title="MENINAS CPU" date="01/04/2022" image={Person} />
-        </View>
+      <ScrollView horizontal={true}>
+        <TouchableOpacity
+          style={{alignItems: 'center', paddingHorizontal: 30}}
+          onPress={goToActionSearch}>
+          <Card />
+        </TouchableOpacity>
       </ScrollView>
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={goToNewResearch}>
@@ -58,18 +56,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#372775',
-  },
-  scrollViewContent: {
-    alignItems: 'center',
-    paddingHorizontal: 10,
-  },
-  containerCard: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 5,
-    width: '90%',
   },
   icon: {
     marginLeft: 15,
@@ -87,6 +73,10 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: 'AveriaLibre-Regular',
     fontSize: 20,
+  },
+  cardButton: {
+    alignItems: 'center',
+    paddingHorizontal: 30,
   },
   buttonContainer: {
     backgroundColor: '#37BD6D',
