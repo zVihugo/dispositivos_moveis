@@ -22,7 +22,9 @@ export function NovaPesquisa({navigation}) {
 
   const handleEscolherImagem = () => {
     launchImageLibrary({mediaType: 'photo', selectionLimit: 1}, response => {
-      if (response.didCancel) return;
+      if (response.didCancel) {
+        return;
+      }
       if (response.assets && response.assets.length > 0) {
         setImagemUri(response.assets[0].uri);
       }
@@ -41,7 +43,7 @@ export function NovaPesquisa({navigation}) {
   const handleCadastro = () => {
     let valid = true;
 
-    if (!nome.trim()) {
+    /*if (!nome.trim()) {
       setNomeError('O campo Nome é obrigatório.');
       valid = false;
     } else {
@@ -53,11 +55,11 @@ export function NovaPesquisa({navigation}) {
       valid = false;
     } else {
       setDataError('');
-    }
+    }*/
 
     if (valid) {
       console.log({nome, data, imagemUri});
-      navigation.navigate('Home'); // Exemplo de navegação
+      navigation.navigate('AcoesPesquisa', {nome}); // Exemplo de navegação
     }
   };
 

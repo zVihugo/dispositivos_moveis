@@ -7,6 +7,8 @@ import {RecuperarSenha} from '../Pages/RecuperarSenha/Index';
 import {Home} from '../Pages/Home/Index';
 import {DrawerNavigator} from '../Pages/DrawerNavigator/Index';
 import {NovaPesquisa} from '../Pages/NovaPesquisa/NovaPesquisa';
+import {AcoesPesquisa} from '../Pages/AcoesPesquisa';
+import {ColetaDados} from '../Pages/ColetaDados';
 
 const Stack = createStackNavigator();
 
@@ -65,6 +67,28 @@ export function Routes() {
               fontFamily: 'AveriaLibre-Bold',
               fontSize: 30,
             },
+          }}
+        />
+        <Stack.Screen
+          name="AcoesPesquisa"
+          component={AcoesPesquisa}
+          options={{
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#2B1D62',
+            },
+            title: 'Carnaval',
+            headerTitleStyle: {
+              fontFamily: 'AveriaLibre-Bold',
+              fontSize: 30,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="ColetaDados"
+          component={ColetaDados}
+          options={{
+            headerShown: false
           }}
         />
         <Stack.Screen
