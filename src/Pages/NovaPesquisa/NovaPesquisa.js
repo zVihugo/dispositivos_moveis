@@ -167,11 +167,10 @@ const styles = StyleSheet.create({
   imageButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10,
   },
   imageButton: {
     backgroundColor: '#fff',
-    padding: 17,
+    padding: 25,
     color: '#000',
   },
   buttonContent: {

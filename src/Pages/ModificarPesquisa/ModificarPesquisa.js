@@ -249,7 +249,6 @@ const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: '#372775',
     padding: 20,
-    borderRadius: 10,
     alignItems: 'center',
     width: '80%',
   },
@@ -257,7 +256,7 @@ const styles = StyleSheet.create({
     fontFamily: 'AveriaLibre-Regular',
     color: '#fff',
     fontSize: 18,
-    marginBottom: 20,
+    marginBottom: 50,
     textAlign: 'center',
   },
   modalButtons: {
@@ -267,16 +266,15 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     padding: 10,
-    borderRadius: 5,
     flex: 1,
     marginHorizontal: 5,
     alignItems: 'center',
   },
   confirmButton: {
-    backgroundColor: '#37BD6D',
+    backgroundColor: '#FF8383',
   },
   cancelButton: {
-    backgroundColor: '#FF4D4D',
+    backgroundColor: '#3F92C5',
   },
   modalButtonText: {
     fontFamily: 'AveriaLibre-Regular',
