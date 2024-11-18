@@ -1,53 +1,27 @@
-import {Image, Text, View, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import { CardItem } from '../CardITem/Index';
 
-export function Card({title, date, image}) {
+import Computer from '../../assets/images/Computer.png';
+import People from '../../assets/images/People.png';
+import Person from '../../assets/images/Person.png';
+
+export function Card() {
   return (
     <View style={Styles.card}>
-      <View style={Styles.imageContainer}>
-        <Image source={image} style={Styles.image} />
-      </View>
-      <View style={Styles.textContainer}>
-        <Text style={Styles.title}>{title}</Text>
-        <Text style={Styles.date}>{date}</Text>
-      </View>
+      <CardItem title="SECOMP 2023" date="10/10/2023" image={Computer} />
+      <CardItem title="UBUNTU 2022" date="05/06/2022" image={People} />
+      <CardItem title="MENINAS CPU" date="01/04/2022" image={Person} />
     </View>
   );
 }
 
 const Styles = StyleSheet.create({
   card: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: 10,
-    marginVertical: 8,
-    marginHorizontal: 15,
-    height: '50%',
-    borderRadius: 10,
-    elevation: 1,
-  },
-  imageContainer: {
-    justifyContent: 'center',
-    marginRight: 10,
-    marginTop: 15,
-  },
-  image: {
-  },
-  textContainer: {
     flex: 1,
     justifyContent: 'center',
-  },
-  title: {
-    fontSize: 36,
-    fontFamily: 'AveriaLibre-Regular',
-    color: '#3F92C5',
-    textAlign: 'center',
-  },
-  date: {
-    marginTop: 5,
-    fontSize: 16,
-    color: '#8B8B8B',
-    fontFamily: 'AveriaLibre-Regular',
-    textAlign: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 5,
+    width: '90%',
   },
 });
