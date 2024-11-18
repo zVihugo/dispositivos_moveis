@@ -88,7 +88,8 @@ export function Routes() {
           name="ColetaDados"
           component={ColetaDados}
           options={{
-            headerShown: false
+            title: 'ColetaDados',
+            headerShown: false,
           }}
         />
         <Stack.Screen
