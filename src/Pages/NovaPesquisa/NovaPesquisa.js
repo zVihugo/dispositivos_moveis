@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 10,
     justifyContent: 'center',
-    borderRadius: 4,
+
     fontFamily: 'AveriaLibre-Regular',
     color: '#3F92C5',
     fontSize: 16,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 4,
+
     height: 40,
   },
   iconWrapper: {
@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 4,
   },
   buttonText: {
     color: '#939393',

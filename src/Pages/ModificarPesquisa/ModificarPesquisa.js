@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import {launchImageLibrary} from 'react-native-image-picker';
 export function ModificarPesquisa({navigation}) {
   const [nome, setNome] = useState('Pesquisa Exemplo');
   const [data, setData] = useState('17/11/2024');
@@ -28,7 +29,14 @@ export function ModificarPesquisa({navigation}) {
       setDataError('');
     }
   };
-
+  const handleEscolherImagem = () => {
+    launchImageLibrary({mediaType: 'photo', selectionLimit: 1}, response => {
+      if (response.didCancel) return;
+      if (response.assets && response.assets.length > 0) {
+        setImagemCarregada(true);
+      }
+    });
+  };
   const handleSalvar = () => {
     let valid = true;
 
@@ -98,21 +106,26 @@ export function ModificarPesquisa({navigation}) {
           )}
           {dataError ? <Text style={styles.errorText}>{dataError}</Text> : null}
         </View>
-        <View style={styles.actionsRow}>
-          <TouchableOpacity style={styles.buttonContent} onPress={handleSalvar}>
-            <Text style={styles.buttonText}>SALVAR</Text>
+        <View style={styles.inputGroup}>
+          <Text style={styles.textContent}>Imagem</Text>
+          <TouchableOpacity
+            onPress={handleEscolherImagem}
+            style={styles.iconContainer}>
+            <Icon2 name={'party-popper'} size={50} color={'#C60EB3'} />
           </TouchableOpacity>
-          <View style={styles.deleteGroup}>
-            <TouchableOpacity
-              style={styles.trashIcon}
-              onPress={() => setModalVisible(true)}>
-              <Icon name="trash" size={24} color="#FFF" />
-            </TouchableOpacity>
-            <Text style={styles.deleteText}>Apagar</Text>
-          </View>
         </View>
+        <TouchableOpacity style={styles.buttonContent} onPress={handleSalvar}>
+          <Text style={styles.buttonText}>SALVAR</Text>
+        </TouchableOpacity>
       </View>
-
+      <View style={styles.deleteGroup}>
+        <TouchableOpacity
+          style={styles.trashIcon}
+          onPress={() => setModalVisible(true)}>
+          <Icon name="trash" size={25} color="#FFF" />
+        </TouchableOpacity>
+        <Text style={styles.deleteText}>Apagar</Text>
+      </View>
       {/* Modal de confirmação */}
       <Modal
         visible={modalVisible}
@@ -169,7 +182,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 40,
     paddingLeft: 10,
-    borderRadius: 4,
+
     fontSize: 16,
     fontFamily: 'AveriaLibre-Regular',
     color: '#3F92C5',
@@ -178,7 +191,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 4,
+
     height: 40,
   },
   iconWrapper: {
@@ -186,33 +199,41 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  actionsRow: {
-    flexDirection: 'row',
+  iconContainer: {
+    backgroundColor: '#fff',
     alignItems: 'center',
-    marginTop: 20,
+    justifyContent: 'center',
+    marginVertical: 10,
+    padding: 17,
+    width: '60%',
   },
   buttonContent: {
     backgroundColor: '#37BD6D',
-    width: '60%',
+    width: '80%',
     height: 40,
+    marginTop: 30,
+    padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    elevation: 4,
   },
   buttonText: {
+    fontFamily: 'AveriaLibre-Regular',
     color: '#fff',
     fontSize: 18,
   },
   deleteGroup: {
-    alignItems: 'center',
-    marginLeft: 20,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    padding: 15,
   },
   trashIcon: {
-    marginBottom: 5,
+    marginBottom: 0,
+    marginRight: 18,
   },
   deleteText: {
     color: '#FFF',
-    fontSize: 14,
+    fontSize: 18,
   },
   errorText: {
     color: '#FD7979',
