@@ -1,5 +1,5 @@
 import {View, StyleSheet} from 'react-native';
-import { CardItem } from '../CardITem/Index';
+import { CardItem } from '../CardItem/Index';
 
 import Computer from '../../assets/images/Computer.png';
 import People from '../../assets/images/People.png';
