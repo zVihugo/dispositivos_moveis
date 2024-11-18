@@ -62,7 +62,22 @@ export function Routes() {
             headerStyle: {
               backgroundColor: '#2B1D62',
             },
-            title: 'NovaPesquisa',
+            title: 'Nova Pesquisa',
+            headerTitleStyle: {
+              fontFamily: 'AveriaLibre-Bold',
+              fontSize: 30,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="ModificarPesquisa"
+          component={ModificarPesquisa}
+          options={{
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#2B1D62',
+            },
+            title: 'Modificar Pesquisa',
             headerTitleStyle: {
               fontFamily: 'AveriaLibre-Bold',
               fontSize: 30,

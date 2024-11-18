@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Ícones
 
@@ -43,7 +43,7 @@ export function NovaPesquisa({navigation}) {
   const handleCadastro = () => {
     let valid = true;
 
-    /*if (!nome.trim()) {
+    if (!nome.trim()) {
       setNomeError('O campo Nome é obrigatório.');
       valid = false;
     } else {
@@ -55,11 +55,11 @@ export function NovaPesquisa({navigation}) {
       valid = false;
     } else {
       setDataError('');
-    }*/
+    }
 
-    if (valid) {
+     if (valid) {
       console.log({nome, data, imagemUri});
-      navigation.navigate('AcoesPesquisa', {nome}); // Exemplo de navegação
+      navigation.navigate('AcoesPesquisa', {nome});
     }
   };
 
@@ -84,20 +84,20 @@ export function NovaPesquisa({navigation}) {
             <TextInput
               style={[styles.inputContext, {flex: 1}]}
               value={data}
-              editable={false} // O usuário não pode digitar, apenas selecionar
+              editable={false}
               placeholderTextColor="#888"
             />
             <TouchableOpacity
               onPress={() => setShowDatePicker(true)}
               style={styles.iconWrapper}>
-              <Icon name="calendar" size={20} color="#555" />
+              <Icon name="calendar" size={20} color="#939393" />
             </TouchableOpacity>
           </View>
           {showDatePicker && (
             <DateTimePicker
               value={selectedDate}
               mode="date"
-              display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+              display={'default'}
               onChange={handleDateChange}
             />
           )}
@@ -149,13 +149,16 @@ const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 10,
     justifyContent: 'center',
-    borderRadius: 4,
+
+    fontFamily: 'AveriaLibre-Regular',
+    color: '#3F92C5',
+    fontSize: 16,
   },
   dateInputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 4,
+
     height: 40,
   },
   iconWrapper: {
@@ -166,11 +169,10 @@ const styles = StyleSheet.create({
   imageButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10,
   },
   imageButton: {
     backgroundColor: '#fff',
-    padding: 17,
+    padding: 25,
     color: '#000',
   },
   buttonContent: {
@@ -181,10 +183,11 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 4,
   },
   buttonText: {
-    color: '#000',
-    fontSize: 16,
+    color: '#939393',
+    fontSize: 14,
     fontFamily: 'AveriaLibre-Regular',
     textAlign: 'center',
   },
@@ -195,7 +198,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   errorText: {
-    color: '#FF4D4D',
+    color: '#FD7979',
     fontSize: 14,
     fontFamily: 'AveriaLibre-Regular',
     marginTop: 5,
