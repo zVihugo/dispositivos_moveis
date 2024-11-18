@@ -1,17 +1,21 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {CustomDrawer} from '../../components/CustomDrawer/Index';
-import {PesquisaTeste} from '../Pesquisa';
 import {Home} from '../Home/Index';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import IconMenu from 'react-native-vector-icons/Entypo';
+import IconMenu from 'react-native-vector-icons/Ionicons';
 import IconFile from 'react-native-vector-icons/Fontisto';
 
 const Drawer = createDrawerNavigator();
 
 const CustomMenuIcon = ({navigation}) => (
   <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-    <IconMenu name="menu" size={45} color="#fff" style={{marginLeft: 10}} />
+    <IconMenu
+      name="menu-sharp"
+      size={55}
+      color="#fff"
+      style={{marginLeft: 10}}
+    />
   </TouchableOpacity>
 );
 
@@ -32,6 +36,7 @@ export function DrawerNavigator() {
         drawerActiveBackgroundColor: 'transparent',
         drawerInactiveBackgroundColor: 'transparent',
       }}
+      initialRouteName="Home"
       drawerContent={props => <CustomDrawer {...props} />}>
       <Drawer.Screen
         name="Home"
@@ -43,10 +48,12 @@ export function DrawerNavigator() {
         })}
       />
       <Drawer.Screen
-        name="Pesquisas"
-        component={PesquisaTeste}
-        options={{
+        name="pesquisa"
+        component={Home}
+        options={({navigation}) => ({
+          headerTitle: '',
           drawerLabel: () => null,
+          headerLeft: () => <CustomMenuIcon navigation={navigation} />,
           drawerIcon: () => (
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <IconFile name="file-1" color={'#fff'} size={25} />
@@ -61,7 +68,7 @@ export function DrawerNavigator() {
               </Text>
             </View>
           ),
-        }}
+        })}
       />
     </Drawer.Navigator>
   );
