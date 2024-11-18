@@ -57,9 +57,9 @@ export function NovaPesquisa({navigation}) {
       setDataError('');
     }
 
-    if (valid) {
+     if (valid) {
       console.log({nome, data, imagemUri});
-      navigation.navigate('AcoesPesquisa', {nome});
+      navigation.navigate('Home', {nome});
     }
   };
 
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputGroup: {
-    width: '70%',
+    width: '80%',
     marginBottom: 10,
   },
   textContent: {
@@ -172,16 +172,14 @@ const styles = StyleSheet.create({
   },
   imageButton: {
     backgroundColor: '#fff',
-    width: '45%',
-    height: 50,
-    justifyContent: 'center',
+    padding: 25,
     color: '#000',
   },
   buttonContent: {
-    marginTop: 8,
     backgroundColor: '#37BD6D',
-    width: '70%',
+    width: '80%',
     height: 40,
+    marginTop: 30,
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
