@@ -7,9 +7,12 @@ import {RecuperarSenha} from '../Pages/RecuperarSenha/Index';
 import {Home} from '../Pages/Home/Index';
 import {DrawerNavigator} from '../Pages/DrawerNavigator/Index';
 import {NovaPesquisa} from '../Pages/NovaPesquisa/NovaPesquisa';
+
 import {AcoesPesquisa} from '../Pages/AcoesPesquisa';
 import {ColetaDados} from '../Pages/ColetaDados';
+import { Relatorio } from '../Pages/Relatório/Index';
 import {ModificarPesquisa} from '../Pages/ModificarPesquisa/ModificarPesquisa';
+import { Agradecimento } from '../Pages/Agradecimento';
 
 const Stack = createStackNavigator();
 
@@ -108,6 +111,21 @@ export function Routes() {
             headerShown: false,
           }}
         />
+        <Stack.Screen 
+          name="Relatorio"
+          component={Relatorio}
+          options={{
+            headerTintColor: 'white',
+            headerStyle: {
+              backgroundColor: '#2B1D62',
+            },
+            title: 'Relatório',
+            headerTitleStyle: {
+              fontFamily: 'AveriaLibre-Bold',
+              fontSize: 30,
+            },
+          }}
+          />
         <Stack.Screen
           name="Drawer"
           component={DrawerNavigator}
@@ -124,6 +142,15 @@ export function Routes() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="Agradecimento"
+          component={Agradecimento}
+          options={{
+            title: 'Agradecimento',
+            headerShown: false,
+          }}
+        />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

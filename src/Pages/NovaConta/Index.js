@@ -114,6 +114,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 40,
     paddingLeft: 10,
+    fontFamily: 'AveriaLibre-Regular',
+    fontSize: 20,
+    color: '#3F92C5',
   },
   buttonContent: {
     backgroundColor: '#37BD6D',

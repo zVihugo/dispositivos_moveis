@@ -19,6 +19,7 @@ export function RecuperarSenha({navigation}) {
       setErrorMessage('E-mail parece ser inválido');
     } else {
       setErrorMessage('');
+    
       navigation.navigate('Login');
     }
   };
@@ -28,6 +29,8 @@ export function RecuperarSenha({navigation}) {
         <View style={styles.inputGroup}>
           <Text style={styles.textContent}>E-mail</Text>
           <TextInput
+            value={email}
+            onChangeText={text => setEmail(text)}
             style={styles.inputContext}
             placeholder="Digite seu e-mail"
           />
@@ -83,6 +86,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 40,
     paddingLeft: 10,
+    fontFamily: 'AveriaLibre-Regular',
+    fontSize: 20,
+    color: '#3F92C5',
   },
   buttonContent: {
     backgroundColor: '#37BD6D',

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Ícones
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export function NovaPesquisa({navigation}) {
   const [nome, setNome] = useState('');
@@ -59,7 +59,7 @@ export function NovaPesquisa({navigation}) {
 
      if (valid) {
       console.log({nome, data, imagemUri});
-      navigation.navigate('Home', {nome});
+      navigation.navigate('Drawer');
     }
   };
 

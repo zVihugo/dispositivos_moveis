@@ -63,7 +63,7 @@ export function ModificarPesquisa({navigation}) {
   const handleApagar = () => {
     console.log('Pesquisa apagada');
     setModalVisible(false);
-    navigation.navigate('Home');
+    navigation.navigate('Drawer');
   };
 
   return (
@@ -126,7 +126,7 @@ export function ModificarPesquisa({navigation}) {
         </TouchableOpacity>
         <Text style={styles.deleteText}>Apagar</Text>
       </View>
-      {/* Modal de confirmação */}
+   
       <Modal
         visible={modalVisible}
         transparent={true}
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    backgroundColor: '#372775',
+    backgroundColor: '#2B1F5C',
     padding: 20,
     alignItems: 'center',
     width: '80%',

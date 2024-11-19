@@ -2,6 +2,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {CustomDrawer} from '../../components/CustomDrawer/Index';
 import {Home} from '../Home/Index';
 import {Text, TouchableOpacity, View} from 'react-native';
+import { useEffect } from 'react';
 
 import IconMenu from 'react-native-vector-icons/Ionicons';
 import IconFile from 'react-native-vector-icons/Fontisto';
@@ -19,7 +20,10 @@ const CustomMenuIcon = ({navigation}) => (
   </TouchableOpacity>
 );
 
-export function DrawerNavigator() {
+export function DrawerNavigator({navigation}) {
+
+  
+
   return (
     <Drawer.Navigator
       screenOptions={{

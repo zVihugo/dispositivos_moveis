@@ -4,16 +4,17 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export function AcoesPesquisa({navigation}) {
   const handleModificarPage = () => {
-    navigation.navigate('ModificarPesquisa'); //Exemplo para página de modificar pesquisa
+    navigation.navigate('ModificarPesquisa'); 
   };
   const handleColetaDadosPage = () => {
     navigation.navigate('ColetaDados');
   };
 
   const handleRelatorioPage = () => {
-    navigation.navigate('Relatorio'); //Exemplo para página de relatório
+    navigation.navigate('Relatorio'); 
   };
 
+  
   return (
     <View style={styles.container}>
       <Text style={styles.header} />
